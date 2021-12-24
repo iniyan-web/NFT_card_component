@@ -1,0 +1,125 @@
+@use "./variables" as *;
+
+body {
+  background-color: $main-BG-color;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+$c: ".card";
+
+#{$c} {
+  width: 16rem;
+  height: 26rem;
+  padding: 1rem;
+  background-color: $card-BG-color;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px $card-shadow;
+
+  &__img {
+    height: 56%;
+    position: relative;
+    cursor: pointer;
+
+    .equilibrium__img {
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+    }
+
+    &::before {
+      content: "";
+      display: none;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(../images/icon-view.svg) center center no-repeat,
+        $img-hover;
+      border-radius: 6px;
+    }
+
+    &:hover::before {
+      display: inline-block;
+    }
+  }
+
+  &__details {
+    height: 44%;
+
+    #{$c}__title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $neutral-color;
+      margin: 0.8em 0;
+
+      &:hover {
+        cursor: pointer;
+        color: $primary-color-2;
+      }
+    }
+
+    #{$c}__info1 {
+      font-size: 0.85rem;
+      color: $primary-color-1;
+    }
+
+    #{$c}__info2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0 0.9rem;
+      border-bottom: 1px solid $line-color;
+
+      .eth__info,
+      .time__info {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 0.8rem;
+        font-weight: 400;
+        position: relative;
+        top: -3px;
+      }
+
+      .eth__info {
+        color: $primary-color-2;
+      }
+
+      .time__info {
+        color: $primary-color-1;
+      }
+    }
+
+    .creator {
+      margin-top: 0.65rem;
+
+      &__img {
+        width: 28px;
+        border-radius: 100%;
+        border: 1px solid $neutral-color;
+      }
+
+      &__info {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: $primary-color-1;
+        position: relative;
+        left: 12px;
+        top: -10px;
+
+        span {
+          color: $neutral-color;
+
+          &:hover {
+            cursor: pointer;
+            color: $primary-color-2;
+          }
+        }
+      }
+    }
+  }
+}
